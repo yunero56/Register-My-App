@@ -11,9 +11,16 @@ export default class LocationDropdown extends Component {
 
      let LocationName =  eiei.target.getAttribute('data-name');
 
+        
+
      this.setState({
          label: LocationName
      })
+
+     if(this.props.selectedCallback )
+     {
+        this.props.selectedCallback(LocationName);
+     }
         
         
     }

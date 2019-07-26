@@ -33,11 +33,31 @@ export default class ThaiLocationSelectForm extends Component {
         }
     ]
 
+    selectedProvince = (ProvinceName) => {
+        console.log('เลือกจังหวัด' + ProvinceName);
+
+      let chosenProvince  = this.provinces.find(provinces=>{
+            return provinces.name === ProvinceName
+        });
+
+        this.setState({selectedProvince: chosenProvince
+        })
+    }
+
     render() {
+
+        let districtDropDown;
+
+        if(this.state.selectedProvince) 
+        {
+            let districts = this.state.selectedProvince.districts;
+            districtDropDown = <LocationDropdown defaultLabel="เขต/อำเภอ" locations={districts}/>
+        }
+
         return (
             <div>
-                <LocationDropdown defaultLabel="จังหวัด" locations={this.provinces}/>
-                <LocationDropdown defaultLabel="อำเภอ" locations={this.provinces}/>
+                <LocationDropdown defaultLabel="จังหวัด" locations={this.provinces} selectedCallback={this.selectedProvince}/>
+{districtDropDown}
                 <LocationDropdown defaultLabel="ตำบล" locations={this.provinces}/>
             </div>
         )

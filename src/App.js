@@ -9,11 +9,6 @@ import ThaiLocationSelectForm from './Components/ThaiLocationSelectForm';
 
 function App() {
 
-  let provinces = [
-    { name: 'Bangkok', id: 1},
-    { name: 'Nonthaburi', id: 2 }
-  ]
-
 
   return (
     <div>

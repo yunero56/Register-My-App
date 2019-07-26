@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 
 export default class LocationDropdown extends Component {
 
+    state = {
+        label: this.props.defaultLabel
+    }
+
     locationSelected(eiei) {
         console.log(eiei.target);
-        eiei.target.getAttribute('data-name');
 
+     let LocationName =  eiei.target.getAttribute('data-name');
+ 
     }
+
+
 
     render() {
 
@@ -23,7 +30,7 @@ export default class LocationDropdown extends Component {
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false">
-          {defaultLabel}
+          {this.state.label}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

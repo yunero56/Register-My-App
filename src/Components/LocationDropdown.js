@@ -10,7 +10,12 @@ export default class LocationDropdown extends Component {
         console.log(eiei.target);
 
      let LocationName =  eiei.target.getAttribute('data-name');
- 
+
+     this.setState({
+         label: LocationName
+     })
+        
+        
     }
 
 
